@@ -57,7 +57,7 @@ def main():
 
     def VisualizePcaProjection(finalDf, targetColumn):
         fig = plt.figure(figsize = (20,12))
-        ax = fig.add_subplot(111, projection="3d") 
+        ax = fig.add_subplot(1,1,1) 
         ax.set_xlabel('Principal Component 1', fontsize = 15)
         ax.set_ylabel('Principal Component 2', fontsize = 15)
         ax.set('Principal Component 3', fontsize = 15)
