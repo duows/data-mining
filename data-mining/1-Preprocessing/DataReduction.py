@@ -41,15 +41,13 @@ def main():
     
     VisualizePcaProjection(finalDf, target)
 
-
 def ShowInformationDataFrame(df, message=""):
     print(message+"\n")
     print(df.info())
     print(df.describe())
     print(df.head(10))
     print("\n")
-    
-           
+             
 def VisualizePcaProjection(finalDf, targetColumn):
     fig = plt.figure(figsize = (8,8))
     ax = fig.add_subplot(1,1,1) 
@@ -66,7 +64,6 @@ def VisualizePcaProjection(finalDf, targetColumn):
     ax.legend(targets)
     ax.grid()
     plt.show()
-
 
 if __name__ == "__main__":
     main()

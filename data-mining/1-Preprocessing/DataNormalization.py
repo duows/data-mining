@@ -60,7 +60,6 @@ def main():
         ax = fig.add_subplot(111, projection="3d") 
         ax.set_xlabel('Principal Component 1', fontsize = 15)
         ax.set_ylabel('Principal Component 2', fontsize = 15)
-        ax.set_zlabel('Principal Component 2', fontsize = 15)
         ax.set('Principal Component 3', fontsize = 15)
         ax.set_title('2 component PCA', fontsize = 20)
         targets = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
