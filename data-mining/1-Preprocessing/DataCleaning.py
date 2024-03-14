@@ -68,7 +68,7 @@ def UpdateMissingValues(df, column, method="mode", number=0):
         df[column].fillna(mode, inplace=True)
     elif method == 'delete':
         #delete a full row with missing values
-        df.dropna(subset=[column], how='any', inplace=True)
+        df.dropna(axis=0, how='any', inplace=True)
         
 # Executa o script principal passando como argumento a função main e os parâmetros necessários
     
