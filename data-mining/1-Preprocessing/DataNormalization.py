@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 
 def main():
     # Faz a leitura do arquivo
-    input_file = '0-Datasets/krkoptClear.data'
+    input_file = 'data-mining/0-Datasets/krkoptClear.data'
     names = ['White King file','White King rank','White Rook file','White Rook rank','Black King file','Black King rank','Condition'] 
     features = ['White King file','White King rank','White Rook file','White Rook rank','Black King file','Black King rank']
     target = 'Condition'
@@ -55,7 +55,7 @@ def main():
         ax.set_ylabel('Principal Component 2', fontsize = 15)
         ax.set_title('2 component PCA', fontsize = 20)
         targets = ['draw', 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
-        colors = ['r', 'g', 'b', 'y', 'c', 'm', 'k', 'orange', 'purple', 'brown', 'pink', 'lime', 'gray', 'olive', 'teal', 'navy', 'maroon']
+        colors = ['r', 'g', 'b', 'y', 'c', 'm', 'k', 'orange', 'purple', 'brown', 'pink', 'lime', 'gray', 'olive', 'teal', 'navy', 'maroon', 'fuchsia']
         for target, color in zip(targets,colors):
             indicesToKeep = finalDf[targetColumn] == target
             ax.scatter(finalDf.loc[indicesToKeep, 'principal component 1'],
@@ -66,7 +66,7 @@ def main():
         plt.show()
 
     pca = PCA()
-    principalComponents = pca.fit_transform(x_zcore)
+    principalComponents = pca.fit_transform(x_minmax)
     print('Explained variance ratio:')
     print(pca.explained_variance_ratio_.tolist())
     print(x_zcore)
