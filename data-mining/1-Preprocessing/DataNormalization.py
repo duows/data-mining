@@ -94,27 +94,27 @@ def main():
         ax.grid()
         plt.show()
     
-    # pca = PCA(n_components=3)  # Set the number of components to 3
+    pca = PCA(n_components=3)  # Set the number of components to 3
+    principalComponents = pca.fit_transform(x_zcore)
+
+    principalDf = pd.DataFrame(data=principalComponents, columns=['principal component 1', 'principal component 2', 'principal component 3'])
+
+    finalDf = pd.concat([principalDf, df[[target]]], axis=1)
+
+    VisualizePcaProjection3D(finalDf, target)
+
+    # pca = PCA()
     # principalComponents = pca.fit_transform(x_zcore)
-
-    # principalDf = pd.DataFrame(data=principalComponents, columns=['principal component 1', 'principal component 2', 'principal component 3'])
-
-    # finalDf = pd.concat([principalDf, df[[target]]], axis=1)
-
-    # VisualizePcaProjection3D(finalDf, target)
-
-    pca = PCA()
-    principalComponents = pca.fit_transform(x_minmax)
-    print('Explained variance ratio:')
-    print(pca.explained_variance_ratio_.tolist())
-    print(x_zcore)
+    # print('Explained variance ratio:')
+    # print(pca.explained_variance_ratio_.tolist())
+    # print(x_zcore)
     
-    principalDf = pd.DataFrame(data = principalComponents[:, 0:2], columns = ['principal component 1', 'principal component 2'])
+    # principalDf = pd.DataFrame(data = principalComponents[:, 0:2], columns = ['principal component 1', 'principal component 2'])
 
-    finalDf = pd.concat([principalDf, df[[target]]], axis = 1)
-    finalDf.describe()
+    # finalDf = pd.concat([principalDf, df[[target]]], axis = 1)
+    # finalDf.describe()
 
-    VisualizePcaProjection(finalDf, target)
+    # VisualizePcaProjection(finalDf, target)
 
     print(df[target].value_counts())
 
