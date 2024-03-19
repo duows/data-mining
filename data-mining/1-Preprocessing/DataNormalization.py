@@ -16,7 +16,7 @@ from sklearn.decomposition import PCA
 
 def main():
     # Faz a leitura do arquivo
-    input_file = 'data-mining/0-Datasets/krkoptClear.data'
+    input_file = 'data-mining/0-Datasets/krkoptClear_dois.data'
     names = ['White King file','White King rank','White Rook file','White Rook rank','Black King file','Black King rank','Condition'] 
     features = ['White King file','White King rank','White Rook file','White Rook rank','Black King file','Black King rank']
     target = 'Condition'
@@ -60,7 +60,6 @@ def main():
         ax = fig.add_subplot(1,1,1) 
         ax.set_xlabel('Principal Component 1', fontsize = 15)
         ax.set_ylabel('Principal Component 2', fontsize = 15)
-        ax.set('Principal Component 3', fontsize = 15)
         ax.set_title('2 component PCA', fontsize = 20)
         targets = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
         #0, 1, 2, 
@@ -70,7 +69,6 @@ def main():
             indicesToKeep = finalDf[targetColumn] == target
             ax.scatter(finalDf.loc[indicesToKeep, 'principal component 1'],
                     finalDf.loc[indicesToKeep, 'principal component 2'],
-                    finalDf.loc[indicesToKeep, 'principal component 3'],
                     c = color, s = 50)
         ax.legend(targets)
         ax.grid()
@@ -96,29 +94,27 @@ def main():
         ax.grid()
         plt.show()
     
-    pca = PCA(n_components=3)  # Set the number of components to 3
-    principalComponents = pca.fit_transform(x_zcore)
+    # pca = PCA(n_components=3)  # Set the number of components to 3
+    # principalComponents = pca.fit_transform(x_zcore)
 
-    principalDf = pd.DataFrame(data=principalComponents, columns=['principal component 1', 'principal component 2', 'principal component 3'])
+    # principalDf = pd.DataFrame(data=principalComponents, columns=['principal component 1', 'principal component 2', 'principal component 3'])
 
-    finalDf = pd.concat([principalDf, df[[target]]], axis=1)
+    # finalDf = pd.concat([principalDf, df[[target]]], axis=1)
 
-    VisualizePcaProjection3D(finalDf, target)
+    # VisualizePcaProjection3D(finalDf, target)
 
-    #pca = PCA()
-    #principalComponents = pca.fit_transform(x_zcore)
-    #print('Explained variance ratio:')
-    #print(pca.explained_variance_ratio_.tolist())
-    #print(x_zcore)
+    pca = PCA()
+    principalComponents = pca.fit_transform(x_minmax)
+    print('Explained variance ratio:')
+    print(pca.explained_variance_ratio_.tolist())
+    print(x_zcore)
     
     principalDf = pd.DataFrame(data = principalComponents[:, 0:2], columns = ['principal component 1', 'principal component 2'])
 
     finalDf = pd.concat([principalDf, df[[target]]], axis = 1)
     finalDf.describe()
 
-    VisualizePcaProjection3D(finalDf, target)
-
-    print('AAAAAAAAAAAAAAAA')
+    VisualizePcaProjection(finalDf, target)
 
     print(df[target].value_counts())
 
