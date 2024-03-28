@@ -13,7 +13,7 @@ def main():
   
 
   
-  input_file = 'data-mining/0-Datasets/krkoptClear_teste.data'
+  input_file = 'data-mining/0-Datasets/krkoptClear.data'
 
   df = pd.read_csv(input_file,    # Nome do arquivo com dados
                      names = names) # Nome das colunas    
@@ -23,7 +23,7 @@ def main():
   frequency.plot(kind='bar', xlabel='Condition', ylabel='Frequency', title='Frequency Distribution of Cap_Shape')
   plt.show()
 
-  # ax = plt.axes(projection='3d')
+  ax = plt.axes(projection='3d')
 
   # # Data for a three-dimensional line
   # zline = frequency.keys()
@@ -36,58 +36,6 @@ def main():
   # ydata = np.cos(zdata) + 0.1 * np.random.randn(100)
   # ax.scatter3D(xdata, ydata, zdata, c=zdata, cmap='Greens')
   # plt.show()
-
-def setClasses():
-    Poisonous = dict(p = 'Poisonous', e = 'Edible')
-    Cap_Shape = dict(b='bell', c='conical', x='convex', f='flat', k='knobbed', s='sunken')
-    Cap_Surface = dict(f='fibrous', g='grooves', y='scaly', s='smooth')
-    Cap_Color = dict(n='brown', b='buff', c='cinnamon', g='gray', r='green', p='pink', u='purple', e='red', w='white', y='yellow')
-    Gill_Attachment = dict(a='attached', d='descending', f='free', n='notched')
-    Gill_Spacing = dict(c='close', w='crowded', d='distant')
-    Gill_Size = dict(b='broad', n='narrow')
-    Gill_Color = dict(n='brown', b='buff', g='gray', r='green', p='pink', u='purple', o='orange',h='chocolate', k='black', e='red', w='white', y='yellow')
-    Stalk_Shape = dict(e='enlarging',t='tapering')
-    Stalk_Surface_Above_Ring = dict(f='fibrous',y='scaly',k='silky',s='smooth')
-    Stalk_Surface_Bellow_Ring = dict(f='fibrous',y='scaly',k='silky',s='smooth')
-    Stalk_Color_Above_Ring = dict(n='brown', b='buff', c='cinnamon', g='gray', o='orange', p='pink', e='red',w='white', y='yellow')
-    Stalk_Color_Bellow_Ring = dict(n='brown', b='buff', c='cinnamon', g='gray', o='orange', p='pink', e='red',w='white', y='yellow')
-    Veil_Color = dict(n='brown', o='orange', w='white', y='yellow')
-    Ring_Number = dict(n='None', o='One', t='Two')
-    Ring_Type = dict(c='cobwebby', e='evanescent', f='flaring', l='large', n='none', p='pendant', s='sheathing', z='zone')
-    Bruises = dict(t='True', f='False')
-    Odor = dict(a='almond', l='anise', c='creosote', y='fishy', f='foul', m='musty', n='none', p='pungent', s='spicy')
-    Spore_Print_Color = dict(k='black', n='brown', b='buff', h='chocoloate', r='green', o='Orange', u='Purple',w='White', y='Yellow')
-    Population = dict(a='abundant', c='clustered', n='numerous', s='scattered', v='several', y='solitary')
-    Habitat = dict(g='grasses', l='leaves', m='meadows', p='paths', u='urban', w='waste', d='woods')
-    Veil_Type = dict(p = 'partial',u = 'universal')
-
-
-    allClasses = [
-            Poisonous, 
-            Cap_Shape, 
-            Cap_Surface,
-            Cap_Color,
-            Bruises,
-            Odor,
-            Gill_Attachment,
-            Gill_Spacing,
-            Gill_Size,
-            Gill_Color,
-            Stalk_Shape,
-            Stalk_Surface_Above_Ring,
-            Stalk_Surface_Bellow_Ring,
-            Stalk_Color_Above_Ring,
-            Stalk_Color_Bellow_Ring,
-            Veil_Type,
-            Veil_Color,
-            Ring_Number,
-            Ring_Type,
-            Spore_Print_Color,
-            Population,
-            Habitat
-        ]
-    
-    return allClasses
 
 if __name__ == "__main__":
     main()
