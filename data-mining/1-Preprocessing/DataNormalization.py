@@ -49,7 +49,7 @@ def main():
     ShowInformationDataFrame(normalized2Df, "Dataframe Min-Max Normalized")
 
     # Plotando a matriz de correlação min-max
-    correlation_matrix = normalized2Df.corr()
+    correlation_matrix = normalized1Df.corr()
     plt.figure(figsize=(15, 15))
     sns.heatmap(correlation_matrix, annot=True, cmap="coolwarm", fmt=".2f", linewidths=.5)
     plt.title("Matriz de Correlação Min-Max")
@@ -81,7 +81,7 @@ def main():
         ax.set_ylabel('Principal Component 2', fontsize=15)
         ax.set_zlabel('Principal Component 3', fontsize=15)
         ax.set_title('3 component PCA', fontsize=20)
-        targets = finalDf[targetColumn].unique()
+        targets = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
         colors = ['r', 'g', 'b', 'y', 'c', 'm', 'k', 'orange', 'purple', 'brown', 'pink', 'lime', 'gray', 'olive', 'teal',
                 'navy', 'maroon', 'fuchsia']
         for target, color in zip(targets, colors):
@@ -95,7 +95,7 @@ def main():
         plt.show()
     
     pca = PCA(n_components=3)  # Set the number of components to 3
-    principalComponents = pca.fit_transform(x_zcore)
+    principalComponents = pca.fit_transform(x_minmax)
 
     principalDf = pd.DataFrame(data=principalComponents, columns=['principal component 1', 'principal component 2', 'principal component 3'])
 
@@ -103,18 +103,18 @@ def main():
 
     VisualizePcaProjection3D(finalDf, target)
 
-    # pca = PCA()
-    # principalComponents = pca.fit_transform(x_zcore)
-    # print('Explained variance ratio:')
-    # print(pca.explained_variance_ratio_.tolist())
-    # print(x_zcore)
+    pca = PCA()
+    principalComponents = pca.fit_transform(x_minmax)
+    print('Explained variance ratio:')
+    print(pca.explained_variance_ratio_.tolist())
+    print(x_zcore)
     
-    # principalDf = pd.DataFrame(data = principalComponents[:, 0:2], columns = ['principal component 1', 'principal component 2'])
+    principalDf = pd.DataFrame(data = principalComponents[:, 0:2], columns = ['principal component 1', 'principal component 2'])
 
-    # finalDf = pd.concat([principalDf, df[[target]]], axis = 1)
-    # finalDf.describe()
+    finalDf = pd.concat([principalDf, df[[target]]], axis = 1)
+    finalDf.describe()
 
-    # VisualizePcaProjection(finalDf, target)
+    VisualizePcaProjection(finalDf, target)
 
     print(df[target].value_counts())
 
