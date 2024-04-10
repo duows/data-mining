@@ -94,6 +94,40 @@ def main():
         ax.grid()
         plt.show()
     
+
+    # def plot_3d_scatter(df, col1, col2, col3):
+    #    fig = plt.figure(figsize=(10, 8))
+    #    ax = fig.add_subplot(111, projection='3d')
+    #    
+    #    ax.scatter(df[col1], df[col2], df[col3], c='r', marker='o')
+    #    
+    #    ax.set_xlabel(col1)
+    #    ax.set_ylabel(col2)
+    #    ax.set_zlabel(col3)
+    #    
+    #    plt.show()
+
+    def plot_3d_scatter(df, col1, col2, col3):
+        fig = plt.figure(figsize=(10, 8))
+        ax = fig.add_subplot(111, projection='3d')
+        
+        # Mapeando valores únicos da terceira coluna para cores
+        unique_values = df[col3].unique()
+        num_unique_values = len(unique_values)
+        colors = plt.cm.tab20(np.linspace(0, 1, num_unique_values + 1))  # Escolha um mapa de cores adequado
+        
+        # Plotando cada valor único da terceira coluna com uma cor correspondente
+        for i, value in enumerate(unique_values):
+            mask = df[col3] == value
+            ax.scatter(df.loc[mask, col1], df.loc[mask, col2], df.loc[mask, col3], c=[colors[i]], label=value)
+
+        ax.set_xlabel(col1)
+        ax.set_ylabel(col2)
+        ax.set_zlabel(col3)
+        
+        plt.legend(title=col3, loc='best')
+        plt.show()
+
     pca = PCA(n_components=3)  # Set the number of components to 3
     principalComponents = pca.fit_transform(x_minmax)
 
@@ -117,6 +151,11 @@ def main():
     VisualizePcaProjection(finalDf, target)
 
     print(df[target].value_counts())
+
+
+    plot_3d_scatter(df, 'White King file', 'White King rank', 'Condition')
+    plot_3d_scatter(df, 'White Rook file', 'White Rook rank', 'Condition')
+    plot_3d_scatter(df, 'Black King file', 'Black King rank', 'Condition')
 
 def ShowInformationDataFrame(df, message=""):
     print(message+"\n")
