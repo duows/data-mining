@@ -115,10 +115,11 @@ def main():
         unique_values = df[col3].unique()
         num_unique_values = len(unique_values)
         colors = plt.cm.tab20(np.linspace(0, 1, num_unique_values + 1))  # Escolha um mapa de cores adequado
-        
+        total_points = 0
         # Plotando cada valor único da terceira coluna com uma cor correspondente
         for i, value in enumerate(unique_values):
             mask = df[col3] == value
+            total_points += np.sum(mask)
             ax.scatter(df.loc[mask, col1], df.loc[mask, col2], df.loc[mask, col3], c=[colors[i]], label=value)
 
         ax.set_xlabel(col1)
@@ -127,6 +128,7 @@ def main():
         
         plt.legend(title=col3, loc='best')
         plt.show()
+        print("Número total de dados no gráfico:", total_points)
 
     pca = PCA(n_components=3)  # Set the number of components to 3
     principalComponents = pca.fit_transform(x_minmax)
