@@ -1,12 +1,26 @@
 import pandas as pd
 import numpy as np
 
+# Função para substituir letras por números
+def replace_letters_with_numbers(df):
+    for char in ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']:
+        df.replace(regex=rf'^{char}$', value=str(ord(char) - ord('a') + 1), inplace=True)
+    return df
+
+def convert_condition_to_integers(df):
+    condition_mapping = {
+        "zero": 0, "one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7,
+        "eight": 8, "nine": 9, "ten": 10, "eleven": 11, "twelve": 12, "thirteen": 13, 
+        "fourteen": 14, "fifteen": 15, "sixteen": 16, "seventeen": 17, "draw": 18
+    }
+    df['Condition'] = df['Condition'].map(condition_mapping)
+
 def main():
     # Faz a leitura do arquivo
     names = ['White King file','White King rank','White Rook file','White Rook rank','Black King file','Black King rank','Condition'] 
     features = ['White King file','White King rank','White Rook file','White Rook rank','Black King file','Black King rank', 'Condition']
-    output_file = 'data-mining/0-Datasets/krkoptClear_dois.data'
-    input_file = 'data-mining/0-Datasets/krkoptClear_teste.data'
+    output_file = 'data-mining/data-mining/0-Datasets/krkoptClear_dois.data'
+    input_file = 'data-mining/data-mining/0-Datasets/krkoptClear_teste.data'
     df = pd.read_csv(input_file,         # Nome do arquivo com dados
                      names = names,      # Nome das colunas 
                      usecols = features, # Define as colunas que serão  utilizadas
@@ -46,9 +60,17 @@ def main():
     print(df_original.head(15))
     print("\n")
     
+    # Substitui letras por números
+    df = replace_letters_with_numbers(df)
+    
+    # Converte nomes escritos por extenso em números inteiros na coluna 'Condition'
+    convert_condition_to_integers(df)
+    
+    # Substitui 'draw' por -1 na coluna 'Condition'
+    # df['Condition'].replace('draw', -1, inplace=True)
+    
     # Salva arquivo com o tratamento para dados faltantes
     df.to_csv(output_file, header=False, index=False)  
-    
 
 def UpdateMissingValues(df, column, method="mode", number=0):
     if method == 'number':
@@ -69,15 +91,6 @@ def UpdateMissingValues(df, column, method="mode", number=0):
     elif method == 'delete':
         #delete a full row with missing values
         df.dropna(axis=0, how='any', inplace=True)
-        
-# Executa o script principal passando como argumento a função main e os parâmetros necessários
-    
-#identify all categorical variables
-    cat_columns = df.select_dtypes(['object']).columns
-
-    #convert all categorical variables to numeric
-    df[cat_columns] = df[cat_columns].apply(lambda x: pd.factorize(x)[0])
-
 
 if __name__ == "__main__":
     main()

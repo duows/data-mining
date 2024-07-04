@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 
 def main():
     # Faz a leitura do arquivo
-    input_file = 'data-mining/0-Datasets/krkoptClear.data'
+    input_file = 'data-mining/data-mining/0-Datasets/krkoptClear_dois_dois_dois.data'
     names = ['White King file','White King rank','White Rook file','White Rook rank','Black King file','Black King rank','Condition'] 
     features = ['White King file','White King rank','White Rook file','White Rook rank','Black King file','Black King rank']
     target = 'Condition'
