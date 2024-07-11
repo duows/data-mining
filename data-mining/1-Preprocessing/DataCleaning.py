@@ -64,7 +64,7 @@ def main():
     df = replace_letters_with_numbers(df)
     
     # Converte nomes escritos por extenso em números inteiros na coluna 'Condition'
-    # convert_condition_to_integers(df)
+    convert_condition_to_integers(df)
     
     # Substitui 'draw' por -1 na coluna 'Condition'
     # df['Condition'].replace('draw', -1, inplace=True)

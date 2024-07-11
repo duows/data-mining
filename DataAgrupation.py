@@ -5,18 +5,25 @@ from sklearn.preprocessing import StandardScaler
 import matplotlib.pyplot as plt
 
 def group_condition_intervals(condition):
-    if 0 <= condition <= 6:
-        return '0-6'
-    elif 7 <= condition <= 12:
-        return '7-12'
-    elif 13 <= condition <= 18:
-        return '13-18'
+    if 0 <= condition <= 3:
+        return '0-3'
+    elif 4 <= condition <= 7:
+        return '4-7'
+    elif 8 <= condition < 10:
+        return '8-10'
+    elif 11 <= condition < 14:
+        return '11-14'
+    elif 15 <= condition < 17:
+        return '15-17'
+    elif 18:
+        return '18'
     else:
         return 'Other'
 
 def main():
     # Faz a leitura do arquivo
-    input_file = 'data-mining/0-Datasets/krkoptClear_dois_dois_dois.data'
+    input_file = 'data-mining/0-Datasets/krkoptClear_new_2.data'
+    output_file = 'data-mining/0-Datasets/krkoptBalance.data'
     names = ['White King file','White King rank','White Rook file','White Rook rank','Black King file','Black King rank','Condition'] 
     features = ['White King file','White King rank','White Rook file','White Rook rank','Black King file','Black King rank']
     target = 'Condition'
@@ -55,6 +62,8 @@ def main():
     
     VisualizePcaProjection(finalDf, 'Condition Interval')
 
+    df.to_csv(output_file, header=False, index=False)
+
 def ShowInformationDataFrame(df, message=""):
     print(message+"\n")
     print(df.info())
@@ -69,7 +78,7 @@ def VisualizePcaProjection(finalDf, targetColumn):
     ax.set_ylabel('Principal Component 2', fontsize = 15)
     ax.set_title('2 component PCA', fontsize = 20)
     targets = finalDf[targetColumn].unique()
-    colors = ['r', 'g', 'b']
+    colors = ['r', 'g', 'b', 'y']
     for target, color in zip(targets, colors):
         indicesToKeep = finalDf[targetColumn] == target
         ax.scatter(finalDf.loc[indicesToKeep, 'principal component 1'],
