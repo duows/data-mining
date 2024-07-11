@@ -7,7 +7,7 @@ import pandas as pd
 from sklearn.preprocessing import StandardScaler
 
 def main():
-    input_file = '0-Datasets/MamoClear.data'
+    input_file = 'data-mining/0-Datasets/MamoClear.data'
     names = ['Age','Shape','Margin','Density','Severity']
     features = ['Age','Shape','Margin','Density']
     target = 'Severity'
