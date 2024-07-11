@@ -18,7 +18,8 @@ import pandas as pd
 def main():
     # Faz a leitura do arquivo
     # input_file = 'data-mining/0-Datasets/krkoptClear.data'
-    input_file = 'data-mining/0-Datasets/krkoptClear_dois_dois_dois.data'
+    output_file = 'data-mining/0-Datasets/krkoptClear_new.data'
+    input_file = 'data-mining/0-Datasets/krkopt_missing_values.data'
     names = ['White King file','White King rank','White Rook file','White Rook rank','Black King file','Black King rank','Distance','Condition'] 
     features = ['White King file','White King rank','White Rook file','White Rook rank','Black King file','Black King rank','Distance']
     target = 'Condition'

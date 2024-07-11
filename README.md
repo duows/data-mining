@@ -19,3 +19,7 @@
 - MEDIDAS DE DISPERSÃO
 - MEDIDAS DE POSIÇÃO RELATIVA
 - MEDIDAS DE ASSOCIAÇÃO
+
+# LINK ARTIGO BASE
+
+- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9032202/
