@@ -18,7 +18,7 @@ import pandas as pd
 def main():
     # Faz a leitura do arquivo
     # input_file = 'data-mining/0-Datasets/krkoptClear.data'
-    input_file = 'data-mining/data-mining/0-Datasets/krkoptClear_dois_dois_dois.data'
+    input_file = 'data-mining/0-Datasets/krkoptClear_dois_dois_dois.data'
     names = ['White King file','White King rank','White Rook file','White Rook rank','Black King file','Black King rank','Distance','Condition'] 
     features = ['White King file','White King rank','White Rook file','White Rook rank','Black King file','Black King rank','Distance']
     target = 'Condition'
@@ -63,9 +63,9 @@ def main():
         ax.set_xlabel('Principal Component 1', fontsize = 15)
         ax.set_ylabel('Principal Component 2', fontsize = 15)
         ax.set_title('2 component PCA', fontsize = 20)
-        targets = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
+        targets = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
         #0, 1, 2, 
-        colors = ['r', 'g', 'b', 'b', 'y', 'c', 'm', 'k', 'orange', 'purple', 'brown', 'pink', 'lime', 'gray', 'olive', 'teal', 'navy', 'maroon', 'fuchsia']
+        colors = ['r', 'g', 'b', 'y', 'c', 'm', 'k', 'orange', 'purple', 'brown', 'pink', 'lime', 'gray', 'olive', 'teal', 'navy', 'maroon', 'fuchsia', 'black']
 
         for target, color in zip(targets,colors):
             indicesToKeep = finalDf[targetColumn] == target
@@ -83,9 +83,9 @@ def main():
         ax.set_ylabel('Principal Component 2', fontsize=15)
         ax.set_zlabel('Principal Component 3', fontsize=15)
         ax.set_title('3 component PCA', fontsize=20)
-        targets = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
-        colors = ['r', 'g', 'b', 'y', 'c', 'm', 'k', 'orange', 'purple', 'brown', 'pink', 'lime', 'gray', 'olive', 'teal',
-                'navy', 'maroon', 'fuchsia']
+        targets = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
+        #0, 1, 2, 
+        colors = ['r', 'g', 'b', 'y', 'c', 'm', 'k', 'orange', 'purple', 'brown', 'pink', 'lime', 'gray', 'olive', 'teal', 'navy', 'maroon', 'fuchsia', 'black']
         for target, color in zip(targets, colors):
             indicesToKeep = finalDf[targetColumn] == target
             ax.scatter(finalDf.loc[indicesToKeep, 'principal component 1'],

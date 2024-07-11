@@ -8,7 +8,7 @@ names = ['White King file','White King rank','White Rook file','White Rook rank'
 features = ['White King file','White King rank','White Rook file','White Rook rank','Black King file','Black King rank']
 target = 'Condition'
 df = pd.read_csv(input_file,    # Nome do arquivo com dados
-                    names = names) # Nome das colunas    
+                names = names) # Nome das colunas    
 
 
 # Separating out the features
