@@ -18,7 +18,7 @@ def plot_predictions(y_test, y_pred):
 
 def main():
     # Carrega os dados de xadrez
-    input_file = 'data-mining/0-Datasets/krkoptBalance.data'
+    input_file = 'data-mining/0-Datasets/krkoptClear_new_2.data'
     names = ['White King file', 'White King rank', 'White Rook file', 'White Rook rank', 'Black King file', 'Black King rank', 'Distance', 'Condition'] 
     features = ['White King file', 'White King rank', 'White Rook file', 'White Rook rank', 'Black King file', 'Black King rank', 'Distance']
     target = 'Condition'

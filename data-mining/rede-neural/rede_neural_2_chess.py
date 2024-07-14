@@ -1,4 +1,3 @@
-import itertools
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -6,6 +5,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from keras.models import Sequential
 from keras.layers import Dense
+from keras.utils import to_categorical
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -13,8 +13,10 @@ def plot_training_history(history):
     plt.figure(figsize=(10, 6))
     plt.plot(history.history['loss'], label='Erro treino')
     plt.plot(history.history['val_loss'], label='Erro teste')
+    plt.plot(history.history['accuracy'], label='Acurácia treino')
+    plt.plot(history.history['val_accuracy'], label='Acurácia teste')
     plt.title('Histórico de Treinamento')
-    plt.ylabel('Função de custo')
+    plt.ylabel('Função de custo / Acurácia')
     plt.xlabel('Época de treinamento')
     plt.legend()
     plt.show()
@@ -44,13 +46,18 @@ def main():
     X_train = scaler.fit_transform(X_train)
     X_test = scaler.transform(X_test)
 
+    # Transforma os labels em one-hot encoding
+    y_train = to_categorical(y_train)
+    y_test = to_categorical(y_test)
+
     # Cria e treina o modelo de Rede Neural
     model = Sequential()
-    model.add(Dense(units=100, activation='relu', input_dim=7))
-    model.add(Dense(units=18, activation='linear'))
+    model.add(Dense(units=256, activation='relu', input_dim=X_train.shape[1]))
+    model.add(Dense(units=128, activation='relu'))
+    model.add(Dense(units=y_train.shape[1], activation='softmax'))  # Para classificação multiclasse
 
-    model.compile(optimizer='adam', loss='mean_squared_error', metrics=['accuracy'])
-    history = model.fit(X_train, y_train, epochs=200, batch_size=64, validation_data=(X_test, y_test))
+    model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+    history = model.fit(X_train, y_train, epochs=200, batch_size=32, validation_data=(X_test, y_test))
 
     # Plot do histórico de treinamento
     plot_training_history(history)
