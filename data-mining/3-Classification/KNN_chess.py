@@ -24,13 +24,6 @@ def minkowski_distance(a, b, p=1):
     distance = distance**(1/p)    
     return distance
 
-def euclidian_distance(vet1, vet2):
-    distance = 0
-    for i in range(len(vet1)-1)
-        distance += (vet1[i] - vet2[i])**2
-    distance = distance**0.5
-
-    return distance
 
 def knn_predict(X_train, X_test, y_train, k, p):    
     # Make predictions on the test data
@@ -139,10 +132,10 @@ def main():
      # Get test accuracy score
     accuracy = accuracy_score(y_test, y_hat_test) * 100
     f1 = f1_score(y_test, y_hat_test, average='macro')
-    precision = average_precision_score(y_test, y_hat_test)
+    # precision = average_precision_score(y_test, y_hat_test)
     print("Accuracy K-NN from sk-learn: {:.2f}%".format(accuracy))
     print("F1 Score K-NN from sk-learn: {:.2f}%".format(f1))
-    print("Precison Score K-NN from sk-learn: {:.2f}%".format(precision))
+    # print("Precison Score K-NN from sk-learn: {:.2f}%".format(precision))
 
     # Get test confusion matrix    
     cm = confusion_matrix(y_test, y_hat_test)        
