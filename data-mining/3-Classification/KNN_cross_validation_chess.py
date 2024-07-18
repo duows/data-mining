@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import accuracy_score, f1_score, confusion_matrix
+from sklearn.model_selection import cross_val_score
 from sklearn.neighbors import KNeighborsClassifier
 from collections import Counter
 
@@ -98,46 +99,48 @@ def main():
     print("Total samples: {}".format(X.shape[0]))
 
     # Dividir os dados - 75% para treinamento, 25% para teste
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=1)
-    print("Total train samples: {}".format(X_train.shape[0]))
-    print("Total test samples: {}".format(X_test.shape[0]))
+    # X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=1)
+    # print("Total train samples: {}".format(X_train.shape[0]))
+    # print("Total test samples: {}".format(X_test.shape[0]))
 
     # Normalizar os dados de entrada usando Z-score
     scaler = StandardScaler()
-    X_train = scaler.fit_transform(X_train)
-    X_test = scaler.transform(X_test)
+    X_train = scaler.fit_transform(X)
+    X_test = scaler.transform(X)
         
     # STEP 1 - TESTS USING knn classifier write from scratch    
     # Make predictions on test dataset using knn classifier
-    y_hat_test = knn_predict(X_train, X_test, y_train, k=5, p=2)
+    y_hat_test = knn_predict(X, X, y, k=5, p=2)
 
     # Get test accuracy score
-    accuracy = accuracy_score(y_test, y_hat_test) * 100
-    f1 = f1_score(y_test, y_hat_test, average='macro')
+    accuracy = accuracy_score(y, y_hat_test) * 100
+    f1 = f1_score(y, y_hat_test, average='macro')
     print("Accuracy K-NN from scratch: {:.2f}%".format(accuracy))
     print("F1 Score K-NN from scratch: {:.2f}%".format(f1))
 
     # Get test confusion matrix
-    cm = confusion_matrix(y_test, y_hat_test)        
+    cm = confusion_matrix(y, y_hat_test)        
     plot_confusion_matrix(cm, df[target].unique(), False, "Confusion Matrix - K-NN from scratch")      
     plot_confusion_matrix(cm, df[target].unique(), True, "Confusion Matrix - K-NN from scratch normalized")  
 
     # STEP 2 - TESTS USING knn classifier from sk-learn
     knn = KNeighborsClassifier(n_neighbors=5)
-    knn.fit(X_train, y_train)
-    y_hat_test = knn.predict(X_test)
+    knn.fit(X, y)
+    y_hat_test = knn.predict(X)
+    scores = cross_val_score(knn, X, y, cv=5)
 
      # Get test accuracy score
-    accuracy = accuracy_score(y_test, y_hat_test) * 100
-    f1 = f1_score(y_test, y_hat_test, average='macro')
+    accuracy = accuracy_score(y, y_hat_test) * 100
+    f1 = f1_score(y, y_hat_test, average='macro')
     print("Accuracy K-NN from sk-learn: {:.2f}%".format(accuracy))
     print("F1 Score K-NN from sk-learn: {:.2f}%".format(f1))
 
     # Get test confusion matrix    
-    cm = confusion_matrix(y_test, y_hat_test)        
+    cm = confusion_matrix(y, y_hat_test)        
     plot_confusion_matrix(cm, df[target].unique(), False, "Confusion Matrix - K-NN sklearn")      
     plot_confusion_matrix(cm, df[target].unique(), True, "Confusion Matrix - K-NN sklearn normalized")  
     plt.show()
+    print("%0.2f accuracy with a standard deviation of %0.2f" % (scores.mean(), scores.std()))
 
 if __name__ == "__main__":
     main()
