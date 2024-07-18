@@ -52,8 +52,12 @@ def main():
 
     # Cria e treina o modelo de Rede Neural
     model = Sequential()
-    model.add(Dense(units=256, activation='relu', input_dim=X_train.shape[1]))
-    model.add(Dense(units=128, activation='relu'))
+    model.add(Dense(units=16, activation='relu', input_dim=X_train.shape[1]))
+    model.add(Dense(units=40, activation='relu'))
+    model.add(Dense(units=40, activation='relu'))
+    model.add(Dense(units=40, activation='relu'))
+    model.add(Dense(units=40, activation='relu'))
+    model.add(Dense(units=40, activation='relu'))
     model.add(Dense(units=y_train.shape[1], activation='softmax'))  # Para classificação multiclasse
 
     model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
