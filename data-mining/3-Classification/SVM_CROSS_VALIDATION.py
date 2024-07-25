@@ -42,7 +42,7 @@ def plot_confusion_matrix(cm, classes, normalize=False, title='Confusion matrix'
 
 def main():
     # Carregar a base de dados de xadrez
-    input_file = 'data-mining/data-mining/0-Datasets/krkoptClear_new_2.data'
+    input_file = 'data-mining/data-mining/0-Datasets/krkoptBalance.data'
     names = ['White King file', 'White King rank', 'White Rook file', 'White Rook rank', 'Black King file', 'Black King rank', 'Distance', 'Condition'] 
     features = ['White King file', 'White King rank', 'White Rook file', 'White Rook rank', 'Black King file', 'Black King rank', 'Distance']
     target = 'Condition'
@@ -65,7 +65,7 @@ def main():
     X_test = scaler.transform(X_test)
 
     # Testar usando o classificador SVM do sklearn    
-    svm = SVC(kernel='poly', degree=10, C=10) # poly, rbf, linear
+    svm = SVC(kernel='poly') # poly, rbf, linear
     # Treinar usando o conjunto de dados de treino
     svm.fit(X_train, y_train)
     # Obter vetores de suporte
