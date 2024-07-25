@@ -65,7 +65,7 @@ def main():
     X_test = scaler.transform(X_test)
 
     # Testar usando o classificador SVM do sklearn    
-    svm = SVC(kernel='poly', degree=10, C=10) # poly, rbf, linear
+    svm = SVC(kernel='poly', degree=5, C=10) # poly, rbf, linear
     # Treinar usando o conjunto de dados de treino
     svm.fit(X_train, y_train)
     # Obter vetores de suporte
