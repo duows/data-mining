@@ -1,0 +1,199 @@
+digraph G {
+	graph [bb="0,0,7805,85",
+		concentrate=true,
+		dpi=200,
+		rankdir=LR,
+		splines=ortho
+	];
+	node [label="\N",
+		shape=record
+	];
+	1679966935824	[border=0,
+		fontname=Helvetica,
+		height=1.1806,
+		label=<<table border="0" cellborder="1" bgcolor="black" cellpadding="10"><tr><td colspan="2" bgcolor="black"><font point-size="16" color="white"><b>dense</b> (Dense)</font></td></tr><tr><td bgcolor="white"><font point-size="14">Input shape: <b>(None, 7)</b></font></td><td bgcolor="white"><font point-size="14">Output shape: <b>(None, 128)</b></font></td></tr></table>>,
+		margin=0,
+		pos="180.5,42.5",
+		rects="0,0.5,361,84.5",
+		width=5.0139];
+	1679836404944	[border=0,
+		fontname=Helvetica,
+		height=1.1806,
+		label=<<table border="0" cellborder="1" bgcolor="black" cellpadding="10"><tr><td colspan="2" bgcolor="black"><font point-size="16" color="white"><b>leaky_re_lu</b> (LeakyReLU)</font></td></tr><tr><td bgcolor="white"><font point-size="14">Input shape: <b>(None, 128)</b></font></td><td bgcolor="white"><font point-size="14">Output shape: <b>(None, 128)</b></font></td></tr></table>>,
+		margin=0,
+		pos="586,42.5",
+		rects="397,0.5,775,84.5",
+		width=5.25];
+	1679966935824 -> 1679836404944	[penwidth=2,
+		pos="e,396.61,42.5 361.31,42.5 361.31,42.5 383.59,42.5 383.59,42.5"];
+	1679967054416	[border=0,
+		fontname=Helvetica,
+		height=1.1806,
+		label=<<table border="0" cellborder="1" bgcolor="black" cellpadding="10"><tr><td colspan="2" bgcolor="black"><font point-size="16" color="white"><b>dropout</b> (Dropout)</font></td></tr><tr><td bgcolor="white"><font point-size="14">Input shape: <b>(None, 128)</b></font></td><td bgcolor="white"><font point-size="14">Output shape: <b>(None, 128)</b></font></td></tr></table>>,
+		margin=0,
+		pos="1000,42.5",
+		rects="811,0.5,1189,84.5",
+		width=5.25];
+	1679836404944 -> 1679967054416	[penwidth=2,
+		pos="e,810.64,42.5 775.43,42.5 775.43,42.5 797.61,42.5 797.61,42.5"];
+	1679967047696	[border=0,
+		fontname=Helvetica,
+		height=1.1806,
+		label=<<table border="0" cellborder="1" bgcolor="black" cellpadding="10"><tr><td colspan="2" bgcolor="black"><font point-size="16" color="white"><b>dense_1</b> (Dense)</font></td></tr><tr><td bgcolor="white"><font point-size="14">Input shape: <b>(None, 128)</b></font></td><td bgcolor="white"><font point-size="14">Output shape: <b>(None, 256)</b></font></td></tr></table>>,
+		margin=0,
+		pos="1414,42.5",
+		rects="1225,0.5,1603,84.5",
+		width=5.25];
+	1679967054416 -> 1679967047696	[penwidth=2,
+		pos="e,1224.6,42.5 1189.4,42.5 1189.4,42.5 1211.6,42.5 1211.6,42.5"];
+	1679967230480	[border=0,
+		fontname=Helvetica,
+		height=1.1806,
+		label=<<table border="0" cellborder="1" bgcolor="black" cellpadding="10"><tr><td colspan="2" bgcolor="black"><font point-size="16" color="white"><b>leaky_re_lu_1</b> (LeakyReLU)</font></td></tr><tr><td bgcolor="white"><font point-size="14">Input shape: <b>(None, 256)</b></font></td><td bgcolor="white"><font point-size="14">Output shape: <b>(None, 256)</b></font></td></tr></table>>,
+		margin=0,
+		pos="1828,42.5",
+		rects="1639,0.5,2017,84.5",
+		width=5.25];
+	1679967047696 -> 1679967230480	[penwidth=2,
+		pos="e,1638.6,42.5 1603.4,42.5 1603.4,42.5 1625.6,42.5 1625.6,42.5"];
+	1679967318288	[border=0,
+		fontname=Helvetica,
+		height=1.1806,
+		label=<<table border="0" cellborder="1" bgcolor="black" cellpadding="10"><tr><td colspan="2" bgcolor="black"><font point-size="16" color="white"><b>dropout_1</b> (Dropout)</font></td></tr><tr><td bgcolor="white"><font point-size="14">Input shape: <b>(None, 256)</b></font></td><td bgcolor="white"><font point-size="14">Output shape: <b>(None, 256)</b></font></td></tr></table>>,
+		margin=0,
+		pos="2242,42.5",
+		rects="2053,0.5,2431,84.5",
+		width=5.25];
+	1679967230480 -> 1679967318288	[penwidth=2,
+		pos="e,2052.6,42.5 2017.4,42.5 2017.4,42.5 2039.6,42.5 2039.6,42.5"];
+	1679967382864	[border=0,
+		fontname=Helvetica,
+		height=1.1806,
+		label=<<table border="0" cellborder="1" bgcolor="black" cellpadding="10"><tr><td colspan="2" bgcolor="black"><font point-size="16" color="white"><b>dense_2</b> (Dense)</font></td></tr><tr><td bgcolor="white"><font point-size="14">Input shape: <b>(None, 256)</b></font></td><td bgcolor="white"><font point-size="14">Output shape: <b>(None, 256)</b></font></td></tr></table>>,
+		margin=0,
+		pos="2656,42.5",
+		rects="2467,0.5,2845,84.5",
+		width=5.25];
+	1679967318288 -> 1679967382864	[penwidth=2,
+		pos="e,2466.6,42.5 2431.4,42.5 2431.4,42.5 2453.6,42.5 2453.6,42.5"];
+	1679967449168	[border=0,
+		fontname=Helvetica,
+		height=1.1806,
+		label=<<table border="0" cellborder="1" bgcolor="black" cellpadding="10"><tr><td colspan="2" bgcolor="black"><font point-size="16" color="white"><b>leaky_re_lu_2</b> (LeakyReLU)</font></td></tr><tr><td bgcolor="white"><font point-size="14">Input shape: <b>(None, 256)</b></font></td><td bgcolor="white"><font point-size="14">Output shape: <b>(None, 256)</b></font></td></tr></table>>,
+		margin=0,
+		pos="3070,42.5",
+		rects="2881,0.5,3259,84.5",
+		width=5.25];
+	1679967382864 -> 1679967449168	[penwidth=2,
+		pos="e,2880.6,42.5 2845.4,42.5 2845.4,42.5 2867.6,42.5 2867.6,42.5"];
+	1679967137296	[border=0,
+		fontname=Helvetica,
+		height=1.1806,
+		label=<<table border="0" cellborder="1" bgcolor="black" cellpadding="10"><tr><td colspan="2" bgcolor="black"><font point-size="16" color="white"><b>dropout_2</b> (Dropout)</font></td></tr><tr><td bgcolor="white"><font point-size="14">Input shape: <b>(None, 256)</b></font></td><td bgcolor="white"><font point-size="14">Output shape: <b>(None, 256)</b></font></td></tr></table>>,
+		margin=0,
+		pos="3484,42.5",
+		rects="3295,0.5,3673,84.5",
+		width=5.25];
+	1679967449168 -> 1679967137296	[penwidth=2,
+		pos="e,3294.6,42.5 3259.4,42.5 3259.4,42.5 3281.6,42.5 3281.6,42.5"];
+	1679967609360	[border=0,
+		fontname=Helvetica,
+		height=1.1806,
+		label=<<table border="0" cellborder="1" bgcolor="black" cellpadding="10"><tr><td colspan="2" bgcolor="black"><font point-size="16" color="white"><b>dense_3</b> (Dense)</font></td></tr><tr><td bgcolor="white"><font point-size="14">Input shape: <b>(None, 256)</b></font></td><td bgcolor="white"><font point-size="14">Output shape: <b>(None, 256)</b></font></td></tr></table>>,
+		margin=0,
+		pos="3898,42.5",
+		rects="3709,0.5,4087,84.5",
+		width=5.25];
+	1679967137296 -> 1679967609360	[penwidth=2,
+		pos="e,3708.6,42.5 3673.4,42.5 3673.4,42.5 3695.6,42.5 3695.6,42.5"];
+	1679967631376	[border=0,
+		fontname=Helvetica,
+		height=1.1806,
+		label=<<table border="0" cellborder="1" bgcolor="black" cellpadding="10"><tr><td colspan="2" bgcolor="black"><font point-size="16" color="white"><b>leaky_re_lu_3</b> (LeakyReLU)</font></td></tr><tr><td bgcolor="white"><font point-size="14">Input shape: <b>(None, 256)</b></font></td><td bgcolor="white"><font point-size="14">Output shape: <b>(None, 256)</b></font></td></tr></table>>,
+		margin=0,
+		pos="4312,42.5",
+		rects="4123,0.5,4501,84.5",
+		width=5.25];
+	1679967609360 -> 1679967631376	[penwidth=2,
+		pos="e,4122.6,42.5 4087.4,42.5 4087.4,42.5 4109.6,42.5 4109.6,42.5"];
+	1679988662992	[border=0,
+		fontname=Helvetica,
+		height=1.1806,
+		label=<<table border="0" cellborder="1" bgcolor="black" cellpadding="10"><tr><td colspan="2" bgcolor="black"><font point-size="16" color="white"><b>dropout_3</b> (Dropout)</font></td></tr><tr><td bgcolor="white"><font point-size="14">Input shape: <b>(None, 256)</b></font></td><td bgcolor="white"><font point-size="14">Output shape: <b>(None, 256)</b></font></td></tr></table>>,
+		margin=0,
+		pos="4726,42.5",
+		rects="4537,0.5,4915,84.5",
+		width=5.25];
+	1679967631376 -> 1679988662992	[penwidth=2,
+		pos="e,4536.6,42.5 4501.4,42.5 4501.4,42.5 4523.6,42.5 4523.6,42.5"];
+	1679988716112	[border=0,
+		fontname=Helvetica,
+		height=1.1806,
+		label=<<table border="0" cellborder="1" bgcolor="black" cellpadding="10"><tr><td colspan="2" bgcolor="black"><font point-size="16" color="white"><b>dense_4</b> (Dense)</font></td></tr><tr><td bgcolor="white"><font point-size="14">Input shape: <b>(None, 256)</b></font></td><td bgcolor="white"><font point-size="14">Output shape: <b>(None, 256)</b></font></td></tr></table>>,
+		margin=0,
+		pos="5140,42.5",
+		rects="4951,0.5,5329,84.5",
+		width=5.25];
+	1679988662992 -> 1679988716112	[penwidth=2,
+		pos="e,4950.6,42.5 4915.4,42.5 4915.4,42.5 4937.6,42.5 4937.6,42.5"];
+	1679988761488	[border=0,
+		fontname=Helvetica,
+		height=1.1806,
+		label=<<table border="0" cellborder="1" bgcolor="black" cellpadding="10"><tr><td colspan="2" bgcolor="black"><font point-size="16" color="white"><b>leaky_re_lu_4</b> (LeakyReLU)</font></td></tr><tr><td bgcolor="white"><font point-size="14">Input shape: <b>(None, 256)</b></font></td><td bgcolor="white"><font point-size="14">Output shape: <b>(None, 256)</b></font></td></tr></table>>,
+		margin=0,
+		pos="5554,42.5",
+		rects="5365,0.5,5743,84.5",
+		width=5.25];
+	1679988716112 -> 1679988761488	[penwidth=2,
+		pos="e,5364.6,42.5 5329.4,42.5 5329.4,42.5 5351.6,42.5 5351.6,42.5"];
+	1679988794640	[border=0,
+		fontname=Helvetica,
+		height=1.1806,
+		label=<<table border="0" cellborder="1" bgcolor="black" cellpadding="10"><tr><td colspan="2" bgcolor="black"><font point-size="16" color="white"><b>dropout_4</b> (Dropout)</font></td></tr><tr><td bgcolor="white"><font point-size="14">Input shape: <b>(None, 256)</b></font></td><td bgcolor="white"><font point-size="14">Output shape: <b>(None, 256)</b></font></td></tr></table>>,
+		margin=0,
+		pos="5968,42.5",
+		rects="5779,0.5,6157,84.5",
+		width=5.25];
+	1679988761488 -> 1679988794640	[penwidth=2,
+		pos="e,5778.6,42.5 5743.4,42.5 5743.4,42.5 5765.6,42.5 5765.6,42.5"];
+	1679988865936	[border=0,
+		fontname=Helvetica,
+		height=1.1806,
+		label=<<table border="0" cellborder="1" bgcolor="black" cellpadding="10"><tr><td colspan="2" bgcolor="black"><font point-size="16" color="white"><b>dense_5</b> (Dense)</font></td></tr><tr><td bgcolor="white"><font point-size="14">Input shape: <b>(None, 256)</b></font></td><td bgcolor="white"><font point-size="14">Output shape: <b>(None, 256)</b></font></td></tr></table>>,
+		margin=0,
+		pos="6382,42.5",
+		rects="6193,0.5,6571,84.5",
+		width=5.25];
+	1679988794640 -> 1679988865936	[penwidth=2,
+		pos="e,6192.6,42.5 6157.4,42.5 6157.4,42.5 6179.6,42.5 6179.6,42.5"];
+	1679988972816	[border=0,
+		fontname=Helvetica,
+		height=1.1806,
+		label=<<table border="0" cellborder="1" bgcolor="black" cellpadding="10"><tr><td colspan="2" bgcolor="black"><font point-size="16" color="white"><b>leaky_re_lu_5</b> (LeakyReLU)</font></td></tr><tr><td bgcolor="white"><font point-size="14">Input shape: <b>(None, 256)</b></font></td><td bgcolor="white"><font point-size="14">Output shape: <b>(None, 256)</b></font></td></tr></table>>,
+		margin=0,
+		pos="6796,42.5",
+		rects="6607,0.5,6985,84.5",
+		width=5.25];
+	1679988865936 -> 1679988972816	[penwidth=2,
+		pos="e,6606.6,42.5 6571.4,42.5 6571.4,42.5 6593.6,42.5 6593.6,42.5"];
+	1679988997584	[border=0,
+		fontname=Helvetica,
+		height=1.1806,
+		label=<<table border="0" cellborder="1" bgcolor="black" cellpadding="10"><tr><td colspan="2" bgcolor="black"><font point-size="16" color="white"><b>dropout_5</b> (Dropout)</font></td></tr><tr><td bgcolor="white"><font point-size="14">Input shape: <b>(None, 256)</b></font></td><td bgcolor="white"><font point-size="14">Output shape: <b>(None, 256)</b></font></td></tr></table>>,
+		margin=0,
+		pos="7210,42.5",
+		rects="7021,0.5,7399,84.5",
+		width=5.25];
+	1679988972816 -> 1679988997584	[penwidth=2,
+		pos="e,7020.6,42.5 6985.4,42.5 6985.4,42.5 7007.6,42.5 7007.6,42.5"];
+	1679989054480	[border=0,
+		fontname=Helvetica,
+		height=1.1806,
+		label=<<table border="0" cellborder="1" bgcolor="black" cellpadding="10"><tr><td colspan="2" bgcolor="black"><font point-size="16" color="white"><b>dense_6</b> (Dense)</font></td></tr><tr><td bgcolor="white"><font point-size="14">Input shape: <b>(None, 256)</b></font></td><td bgcolor="white"><font point-size="14">Output shape: <b>(None, 19)</b></font></td></tr></table>>,
+		margin=0,
+		pos="7620,42.5",
+		rects="7435,0.5,7805,84.5",
+		width=5.1389];
+	1679988997584 -> 1679989054480	[penwidth=2,
+		pos="e,7434.7,42.5 7399.4,42.5 7399.4,42.5 7421.7,42.5 7421.7,42.5"];
+}

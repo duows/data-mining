@@ -5,16 +5,22 @@ from sklearn.preprocessing import StandardScaler
 import matplotlib.pyplot as plt
 
 def group_condition_intervals(condition):
-    if 0 <= condition <= 3:
-        return '0-3'
-    elif 4 <= condition <= 7:
-        return '4-7'
-    elif 8 <= condition < 10:
-        return '8-10'
-    elif 11 <= condition < 14:
-        return '11-14'
-    elif 15 <= condition < 17:
-        return '15-17'
+    if 0 <= condition <= 2:
+        return '0'
+    elif 3 <= condition <= 4:
+        return '3'
+    elif 5 <= condition <= 6:
+        return '5'
+    elif 7 <= condition <= 8:
+        return '7'
+    elif 9 <= condition <= 10:
+        return '9'
+    elif 11 <= condition <= 12:
+        return '11'
+    elif 13 <= condition <= 14:
+        return '13'
+    elif 15 <= condition <= 16:
+        return '15'
     elif 18:
         return '18'
     else:

@@ -1,0 +1,79 @@
+digraph G {
+	graph [bb="0,0,2735,85",
+		concentrate=true,
+		dpi=200,
+		rankdir=LR,
+		splines=ortho
+	];
+	node [label="\N",
+		shape=record
+	];
+	2584907044368	[border=0,
+		fontname=Helvetica,
+		height=1.1806,
+		label=<<table border="0" cellborder="1" bgcolor="black" cellpadding="10"><tr><td colspan="2" bgcolor="black"><font point-size="16" color="white"><b>dense</b> (Dense)</font></td></tr><tr><td bgcolor="white"><font point-size="14">Input shape: <b>(None, 7)</b></font></td><td bgcolor="white"><font point-size="14">Output shape: <b>(None, 16)</b></font></td></tr></table>>,
+		margin=0,
+		pos="176.5,42.5",
+		rects="0,0.5,353,84.5",
+		width=4.9028];
+	2585021032272	[border=0,
+		fontname=Helvetica,
+		height=1.1806,
+		label=<<table border="0" cellborder="1" bgcolor="black" cellpadding="10"><tr><td colspan="2" bgcolor="black"><font point-size="16" color="white"><b>dense_1</b> (Dense)</font></td></tr><tr><td bgcolor="white"><font point-size="14">Input shape: <b>(None, 16)</b></font></td><td bgcolor="white"><font point-size="14">Output shape: <b>(None, 50)</b></font></td></tr></table>>,
+		margin=0,
+		pos="569.5,42.5",
+		rects="389,0.5,750,84.5",
+		width=5.0139];
+	2584907044368 -> 2585021032272	[penwidth=2,
+		pos="e,388.71,42.5 353.46,42.5 353.46,42.5 375.68,42.5 375.68,42.5"];
+	2585035782544	[border=0,
+		fontname=Helvetica,
+		height=1.1806,
+		label=<<table border="0" cellborder="1" bgcolor="black" cellpadding="10"><tr><td colspan="2" bgcolor="black"><font point-size="16" color="white"><b>dense_2</b> (Dense)</font></td></tr><tr><td bgcolor="white"><font point-size="14">Input shape: <b>(None, 50)</b></font></td><td bgcolor="white"><font point-size="14">Output shape: <b>(None, 50)</b></font></td></tr></table>>,
+		margin=0,
+		pos="966.5,42.5",
+		rects="786,0.5,1147,84.5",
+		width=5.0139];
+	2585021032272 -> 2585035782544	[penwidth=2,
+		pos="e,785.67,42.5 750.28,42.5 750.28,42.5 772.65,42.5 772.65,42.5"];
+	2585035980368	[border=0,
+		fontname=Helvetica,
+		height=1.1806,
+		label=<<table border="0" cellborder="1" bgcolor="black" cellpadding="10"><tr><td colspan="2" bgcolor="black"><font point-size="16" color="white"><b>dense_3</b> (Dense)</font></td></tr><tr><td bgcolor="white"><font point-size="14">Input shape: <b>(None, 50)</b></font></td><td bgcolor="white"><font point-size="14">Output shape: <b>(None, 50)</b></font></td></tr></table>>,
+		margin=0,
+		pos="1363.5,42.5",
+		rects="1183,0.5,1544,84.5",
+		width=5.0139];
+	2585035782544 -> 2585035980368	[penwidth=2,
+		pos="e,1182.7,42.5 1147.3,42.5 1147.3,42.5 1169.6,42.5 1169.6,42.5"];
+	2585035969232	[border=0,
+		fontname=Helvetica,
+		height=1.1806,
+		label=<<table border="0" cellborder="1" bgcolor="black" cellpadding="10"><tr><td colspan="2" bgcolor="black"><font point-size="16" color="white"><b>dense_4</b> (Dense)</font></td></tr><tr><td bgcolor="white"><font point-size="14">Input shape: <b>(None, 50)</b></font></td><td bgcolor="white"><font point-size="14">Output shape: <b>(None, 50)</b></font></td></tr></table>>,
+		margin=0,
+		pos="1760.5,42.5",
+		rects="1580,0.5,1941,84.5",
+		width=5.0139];
+	2585035980368 -> 2585035969232	[penwidth=2,
+		pos="e,1579.7,42.5 1544.3,42.5 1544.3,42.5 1566.6,42.5 1566.6,42.5"];
+	2585036078928	[border=0,
+		fontname=Helvetica,
+		height=1.1806,
+		label=<<table border="0" cellborder="1" bgcolor="black" cellpadding="10"><tr><td colspan="2" bgcolor="black"><font point-size="16" color="white"><b>dense_5</b> (Dense)</font></td></tr><tr><td bgcolor="white"><font point-size="14">Input shape: <b>(None, 50)</b></font></td><td bgcolor="white"><font point-size="14">Output shape: <b>(None, 50)</b></font></td></tr></table>>,
+		margin=0,
+		pos="2157.5,42.5",
+		rects="1977,0.5,2338,84.5",
+		width=5.0139];
+	2585035969232 -> 2585036078928	[penwidth=2,
+		pos="e,1976.7,42.5 1941.3,42.5 1941.3,42.5 1963.6,42.5 1963.6,42.5"];
+	2585036182288	[border=0,
+		fontname=Helvetica,
+		height=1.1806,
+		label=<<table border="0" cellborder="1" bgcolor="black" cellpadding="10"><tr><td colspan="2" bgcolor="black"><font point-size="16" color="white"><b>dense_6</b> (Dense)</font></td></tr><tr><td bgcolor="white"><font point-size="14">Input shape: <b>(None, 50)</b></font></td><td bgcolor="white"><font point-size="14">Output shape: <b>(None, 19)</b></font></td></tr></table>>,
+		margin=0,
+		pos="2554.5,42.5",
+		rects="2374,0.5,2735,84.5",
+		width=5.0139];
+	2585036078928 -> 2585036182288	[penwidth=2,
+		pos="e,2373.7,42.5 2338.3,42.5 2338.3,42.5 2360.6,42.5 2360.6,42.5"];
+}
